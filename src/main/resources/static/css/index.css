@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+.wrapper{
+    min-height:100%;
+    height:auto;
+}
+
+.my-logo-style {
+    width: 80%;
+    padding-left: 10%;
+    height: 60px
+}
+
+.my-img-style {
+    height: 60px;
+    border-radius: 7px;
+}
+
+.header-link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    height: 60px;
+    line-height: 60px;
+}
+
+.my-layui-bg {
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+}
+#vditor a {
+    color: #4285f4;
+}
+.my-preview {
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 2%;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    min-height: 600px;
+}
+
+.footer {
+    border-top: 1px solid #e8e8e8;
+    font-family: tahoma, Arial;
+    font-size: 12px;
+    color: #999!important;
+    line-height: 22px;
+    text-align: center;
+    width: 100%;
+}
+
+.pipe {
+    margin: 0 5px;
+    color: #CCC;
+    font-size: 10px!important;
+}
