@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class PathInterceptorConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new ApplicationContext()).addPathPatterns("/**");
+        registry.addInterceptor(new AppInterceptor()).addPathPatterns("/**");
     }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

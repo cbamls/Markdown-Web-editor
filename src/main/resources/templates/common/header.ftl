@@ -37,6 +37,11 @@
                     <i class="layui-icon layui-icon-help" id="help" style="font-size: 25px; color: black;"></i>
                 </a>
             </li>
+            <li class="layui-nav-item" id="github">
+                <a href="https://github.com/cbamls/Markdown-Web-editor" >
+                    <img src="${ctx}/images/github.gif" style="height: 40px">
+                </a>
+            </li>
             <#if editable??>
                 <li class="layui-nav-item">
                     <a href="/edit/${id?c}" id="edit">
@@ -45,9 +50,7 @@
                 </li>
                 <#else>
                     <li class="layui-nav-item">
-                    <span href="" id="release">
-                        <i class="layui-icon layui-icon-release" style="font-size: 25px; color: black;"></i>
-                    </span>
+                        <i id="release" class="layui-icon layui-icon-release" style="font-size: 25px; color: black;"></i>
                     </li>
             </#if>
 
@@ -83,11 +86,6 @@
                     <dd lay-unselect>
                         <a href="javascript:;" style="text-decoration: none">
                             <strong>设置图床</strong>
-                        </a>
-                    </dd>
-                    <dd lay-unselect>
-                        <a href="javascript:;" style="text-decoration: none">
-                            <strong>ChangeLogs</strong>
                         </a>
                     </dd>
                 </dl>

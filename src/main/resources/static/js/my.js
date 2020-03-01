@@ -84,6 +84,12 @@ layui.use('layer', function () {
         layui.layer.close(subtips);
     });
     //鼠标悬停提示特效
+    $("#github").hover(function () {
+        openMsg("开源地址", "#github");
+    }, function () {
+        layui.layer.close(subtips);
+    });
+    //鼠标悬停提示特效
     $("#searcher").hover(function () {
         openMsg("搜索", "#searcher");
     }, function () {

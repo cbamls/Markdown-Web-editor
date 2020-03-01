@@ -1,17 +1,20 @@
-# Markdown-Web-editor（墨刀）
+# 墨刀-在线 Markdown 编辑器
 
-基于 Spring-boot、FreeMarker、Vditor 构建的一款在线 Markdown 编辑器。[墨刀-在线Markdown编辑器](http://md.6aiq.com)。本人使用 Vditor 编辑器时日已久，眼看着其功能日益强大，特此基于 Vditor 构建一款 Web 编辑器，愿为天下文人墨客贡献微不足道的力量。
+基于 Spring-boot、FreeMarker、layui、Vditor 构建的一款在线 **所见即所得**的 Markdown 编辑器。[墨刀-在线Markdown编辑器](http://md.6aiq.com)。本人使用 Vditor 编辑器时日已久，眼看着其功能日益强大，特此基于 Vditor 构建一款 Web 编辑器，愿为天下文人墨客贡献微不足道的力量。
 
-# ChangeLogs  
-  
-* [ ]    后台代码重构  
-* [ ]    导出 PDF  
-* [X] 03.01 fix 标题 Input 刷新页面时，div 和 header 重叠问题； fix 编辑器获取焦点时边框变色  
-* [X] 02.29 支持实时搜索个人文件  
-* [X] 02.16 文章详情页与文章编辑页  
-* [X] 02.15 登陆，注册功能  
-* [X] 02.09 技术调研，搭建项目  
+> 此项目正在陆续开源，疫情期间代码仓促，会陆续迭代优化。
+
+# ChangeLogs
+
+* [ ]    后台代码重构
+* [ ]    导出 PDF
+* [X] 03.01 fix 标题 Input 刷新页面时，div 和 header 重叠问题； fix 编辑器获取焦点时边框变色
+* [X] 02.29 支持实时搜索个人文件
+* [X] 02.16 文章详情页与文章编辑页
+* [X] 02.15 登陆，注册功能
+* [X] 02.09 技术调研，搭建项目
 * [X] 02.07 Markdown 编辑器调研
+
 # Feature Outline
 
 ![](http://rna.6aiq.com/image-c463a6d64b2940f199a873737ec412fd.png "image.png")
@@ -34,6 +37,10 @@
 * 多语言支持、内置中英文
 * 支持主流浏览器和移动端
 
+# 功能截图
+
+![image.png](http://rna.6aiq.com/image-7bc7fff88ee848ccac660348d6bf1682.png)
+![image.png](http://rna.6aiq.com/image-378719a92132466984bddc5f7fe42977.png)
 
 # 特别鸣谢
 

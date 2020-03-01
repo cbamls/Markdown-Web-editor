@@ -3,8 +3,6 @@ package com.aiq.editor.common;
 import com.aiq.editor.auth.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -13,13 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class ApplicationContext implements HandlerInterceptor {
+public class AppInterceptor implements HandlerInterceptor {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationContext.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        LOGGER.info("进入拦截器");
         try {
             String scheme = httpServletRequest.getScheme();
             String serverName = httpServletRequest.getServerName();
