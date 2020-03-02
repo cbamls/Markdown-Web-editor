@@ -82,10 +82,10 @@
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="${ctx}/js/auth.js"></script>
 <script>
-    function checkName(value) { //value：表单的值、item：表单的DOM对象
+    function checkName(value) {
         if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
             layui.use('layer', function () {
-                layui.layer.msg('用户名不能有特殊字符')
+                layui.layer.msg('用户名不能为空或有特殊字符')
             });
             return false;
         }
@@ -97,7 +97,12 @@
         }
         return true;
     }
-
+    function checkEmail(value) {
+        if (!new RegExp("/^([a-zA-Z]|[0-9])(\\w|\\-)+@[a-zA-Z0-9]+\\.([a-zA-Z]{2,4})$/").test(value)) {
+            return false;
+        }
+        return true;
+    }
     function checkPass(value) {
         if (!/^[A-Za-z0-9]{6,16}$/.test(value)) {
             layui.use('layer', function () {
@@ -130,6 +135,11 @@
             }
             if (item.name === 'password') {
                 if (!checkPass(item.value)) {
+                    check = false;
+                }
+            }
+            if (item.name === 'email') {
+                if (!checkEmail(item.value)) {
                     check = false;
                 }
             }
