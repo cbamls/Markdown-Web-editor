@@ -11,8 +11,10 @@
 <#include "/common/header.ftl"/>
 
 <div>
-    <div id="preview">
+    <div id="main-article">
+        <div id="preview">
 
+        </div>
     </div>
 </div>
 <textarea id="markdownText" class="preview" style="display:none;">
@@ -309,17 +311,16 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
         });
     });
     Vditor.preview(document.getElementById('preview'),
-            document.getElementById('markdownText').textContent, {
-                className: 'preview vditor-reset vditor-reset--anchor my-preview shadow4',
-                customEmoji: {
-                    'sd': '💔',
-                    'j': 'https://unpkg.com/vditor@1.3.1/dist/images/emoji/j.png',
-                },
-                speech: {
-                    enable: true,
-                },
-                anchor: true
-            })
+        document.getElementById('markdownText').textContent, {
+            customEmoji: {
+                'sd': '💔',
+                'j': 'https://unpkg.com/vditor@1.3.1/dist/images/emoji/j.png',
+            },
+            speech: {
+                enable: true,
+            },
+            anchor: true
+        })
 </script>
 </body>
 </html>

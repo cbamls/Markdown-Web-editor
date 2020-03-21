@@ -31,7 +31,7 @@
 ${article}
     </textarea>
 
-    <#include "/common/footer.ftl"/>
+
 </div>
 <script src="${ctx}/js/my.js"></script>
 
@@ -81,5 +81,6 @@ ${article}
     $("#preview").css("padding-top", "20px")
 
 </script>
+<#include "/common/footer.ftl"/>
 </body>
 </html>
