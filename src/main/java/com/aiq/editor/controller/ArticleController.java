@@ -121,6 +121,7 @@ public class ArticleController {
 
             map.put("article", article.getContent());
             map.put("title", article.getTitle());
+            map.put("articleId", article.getId());
             map.put("edit", "yes");
             return "edit";
         }

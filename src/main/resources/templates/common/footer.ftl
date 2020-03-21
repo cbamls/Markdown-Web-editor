@@ -1,15 +1,10 @@
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
-<script src="${ctx}/js/main.js"></script> <!-- Resource jQuery -->
+<#--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
 
-<script src="${ctx}/js/modernizr.js"></script> <!-- Modernizr -->
 <!--[if IE]>
 <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
 <![endif]-->
-<script src="https://www.layuicdn.com/layui/layui.js"></script>
-<script src="${ctx}/js/modernizr.js"></script> <!-- Modernizr -->
 
-<script src="${ctx}/js/title.js"></script>
 <footer class="footer mt-20">
     <div>
         <nav><a href="#" target="_blank">关于我们</a> <span class="pipe">|</span> <a href="#"

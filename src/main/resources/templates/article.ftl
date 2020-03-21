@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-<#include "/common/meta.ftl">
+    <#include "/common/meta.ftl">
     <link href="${ctx}/css/shadow.css" rel="stylesheet">
 
 </head>
 <body>
 <div class="wrapper">
 
-<#include "/common/header.ftl"/>
-    <div class="input">
-        <label for="name" style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
-        <input type="text" name="name" id="name" value="${title}">
-        <span class="spin" style="width: 0px;"></span>
-    </div>
-    <div>
-        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-            <legend>正文</legend>
-        </fieldset>
-        <div id="preview">
-            <div style="margin-top: 15px">
-                <div id="loading" style="margin: 0 auto; text-align: center; height: 600px;"><img
-                        src="${ctx}/images/loading.gif">
+    <#include "/common/header.ftl"/>
+    <div id="main-article">
+        <div id="export-pdf">
+            <div class="input">
+                <label for="article-title" style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
+                <input type="text" name="name" id="article-title" value="${title}" disabled>
+                <span class="spin" style="width: 0px;"></span>
+            </div>
+            <div>
+                <div id="preview">
+                    <div style="margin-top: 15px">
+                        <div id="loading" style="margin: 0 auto; text-align: center; height: 600px;"><img
+                                    src="${ctx}/images/loading.gif">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <textarea id="markdownText" class="preview" style="display:none;">
 ${article}
     </textarea>
 
 
-
-<#include "/common/footer.ftl"/>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vditor@2.1.5/dist/index.min.js"></script>
 <script src="${ctx}/js/my.js"></script>
 
 <script>
@@ -57,19 +54,33 @@ ${article}
             layer.msg(elem.text());
         });
     });
-
+    $('#exportImg').click(function(event){
+        event.stopPropagation();    //  阻止事件冒泡
+        exportImg();
+    });
+    $('#exportPDF').click(function(event){
+        event.stopPropagation();    //  阻止事件冒泡
+        exportPDF();
+    });
     Vditor.preview(document.getElementById('preview'),
-            document.getElementById('markdownText').textContent, {
-                className: 'preview vditor-reset vditor-reset--anchor my-preview shadow4',
-                customEmoji: {
-                    'sd': '💔',
-                    'j': 'https://unpkg.com/vditor@1.3.1/dist/images/emoji/j.png',
-                },
-                speech: {
-                    enable: true,
-                },
-                anchor: true
-            })
+        document.getElementById('markdownText').textContent, {
+            markdown: {
+                toc: true,
+            },
+            customEmoji: {
+                'sd': '💔',
+                'j': 'https://unpkg.com/vditor@1.3.1/dist/images/emoji/j.png',
+            },
+            speech: {
+                enable: true,
+            },
+            anchor: true
+        })
+    $("#preview").css("font-variant", "normal")
+    $("#preview").css("padding-right", "20px")
+    $("#preview").css("padding-top", "20px")
+
 </script>
+<#include "/common/footer.ftl"/>
 </body>
 </html>

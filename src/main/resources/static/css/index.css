@@ -14,7 +14,7 @@ body {
 }
 
 .my-img-style {
-    height: 60px;
+    height: 40px;
     border-radius: 7px;
 }
 
@@ -33,14 +33,18 @@ body {
 #vditor a {
     color: #4285f4;
 }
+#main-article {
+    margin-left: 19%;
+    margin-right: 19%;
+    background-color: white;
+}
 .my-preview {
-    margin-left: 12%;
-    margin-right: 12%;
     margin-top: 2%;
     border-radius: 10px;
     padding-top: 15px;
     padding-bottom: 10px;
     min-height: 600px;
+    font-variant: normal;
 }
 .my-preview a{
     color: #4285f4;
