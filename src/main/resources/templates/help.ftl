@@ -5,8 +5,6 @@
     <link href="${ctx}/css/shadow.css" rel="stylesheet">
     <link href="${ctx}/css/index.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/vditor@2.1.5/dist/method.min.js"></script>
 </head>
 <body>
 
@@ -297,8 +295,7 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
 
 <#include "/common/footer.ftl"/>
 
-<script src="https://www.layuicdn.com/layui/layui.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="${ctx}/js/my.js"></script>
 <script>
 
 

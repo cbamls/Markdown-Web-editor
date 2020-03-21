@@ -12,10 +12,31 @@
 <link rel="shortcut icon" type="image/x-icon" href="${ctx}/images/logo.jpeg">
 <meta name="copyright" content="http://www.6aiq.com"/>
 <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.css"/>
 <link href="${ctx}/css/index.css" rel="stylesheet">
 <link href="${ctx}/css/title.css" rel="stylesheet">
 <link rel="stylesheet" href="${ctx}/css/search.css"> <!-- Resource style -->
+<link rel="stylesheet" href="${ctx}/css/select-theme.css"> <!-- Resource style -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.css"/>
+<script src="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="${ctx}/js/title.js"></script>
+<script src="${ctx}/js/indexedDB.js"></script>
+<script src="https://cdn.bootcss.com/canvg/1.0/rgbcolor.js"></script>
+<script src="https://canvg.github.io/canvg/demo/v2/stackblur.min.js"></script>
+<script src="https://canvg.github.io/canvg/demo/umd.js"></script>
+<script src="https://cdn.bootcss.com/canvg/1.5/canvg.js"></script>
+<script src="https://cdn.bootcss.com/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script src="${ctx}/js/modernizr.js"></script> <!-- Modernizr -->
+
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+<script src="${ctx}/js/modernizr.js"></script> <!-- Modernizr -->
+<script src="${ctx}/js/main.js"></script> <!-- Resource jQuery -->
+
 
 <style>
     .layui-nav .layui-nav-more {

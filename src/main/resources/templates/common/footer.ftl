@@ -1,26 +1,21 @@
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
-<script src="${ctx}/js/main.js"></script> <!-- Resource jQuery -->
+<#--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
 
-<script src="${ctx}/js/modernizr.js"></script> <!-- Modernizr -->
 <!--[if IE]>
 <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
 <![endif]-->
-<script src="https://www.layuicdn.com/layui/layui.js"></script>
-<script src="${ctx}/js/modernizr.js"></script> <!-- Modernizr -->
 
-<script src="${ctx}/js/title.js"></script>
-<footer class="footer mt-20">
-    <div>
-        <nav><a href="#" target="_blank">关于我们</a> <span class="pipe">|</span> <a href="#"
-                                                                                 target="_blank">联系我们</a> <span
-                class="pipe">|</span><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1278648988&web_id=1278648988"></script>
-        </nav>
-        <p>Copyright &copy;2020 www.6aiq.com All Rights Reserved. &nbsp;
-            <a href="http://www.6aiq.com/" target="_blank" rel="nofollow"> 鲁ICP备18016225号</a><br>
-        </p>
-    </div>
-</footer>
+<#--<footer class="footer mt-20">-->
+<#--    <div>-->
+<#--        <nav><a href="#" target="_blank">关于我们</a> <span class="pipe">|</span> <a href="#"-->
+<#--                                                                                 target="_blank">联系我们</a> <span-->
+<#--                class="pipe">|</span><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1278648988&web_id=1278648988"></script>-->
+<#--        </nav>-->
+<#--        <p>Copyright &copy;2020 www.6aiq.com All Rights Reserved. &nbsp;-->
+<#--            <a href="http://www.6aiq.com/" target="_blank" rel="nofollow"> 鲁ICP备18016225号</a><br>-->
+<#--        </p>-->
+<#--    </div>-->
+<#--</footer>-->
 
 <div id="search" class="cd-main-search">
     <form>

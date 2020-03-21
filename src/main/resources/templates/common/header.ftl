@@ -2,9 +2,11 @@
 <header class="cd-main-header animate-search">
     <div class="cd-logo">
         <a href="/" style="text-decoration: none">
-            <img src="${ctx}/images/logo.jpeg" alt="在线 Markdown 编辑器" class="my-img-style"/>
-            <strong id="head-text" style="font-size: 20px;padding-left: 20px;"> 墨刀</strong>
-            <strong style="font-size: 15px">- 在线 Markdown 编辑器</strong>
+           <h1 style="margin: 0">
+               <img src="${ctx}/images/logo.jpeg" alt="在线 Markdown 编辑器" class="my-img-style"/>
+               <strong id="head-text" style="font-size: 20px;padding-left: 20px;"> 墨刀</strong>
+               <strong style="font-size: 15px">- 在线 Markdown 编辑器</strong>
+           </h1>
         </a>
     </div>
     <nav class="cd-main-nav-wrapper">
@@ -37,8 +39,8 @@
                     <i class="layui-icon layui-icon-help" id="help" style="font-size: 25px; color: black;"></i>
                 </a>
             </li>
-            <li class="layui-nav-item" id="github">
-                <a href="https://github.com/cbamls/Markdown-Web-editor" >
+            <li class="layui-nav-item" id="my-github">
+                <a href="https://github.com/cbamls/Markdown-Web-editor" target="_blank">
                     <img src="${ctx}/images/github.gif" style="height: 40px">
                 </a>
             </li>
@@ -61,18 +63,18 @@
                 <dl class="layui-nav-child layui-anim layui-anim-upbit"
                     style="left: auto;right: -22px;text-align: center;">
                     <dd lay-unselect>
-                        <a href="javascript:;" style="text-decoration: none">
+                        <a id="exportPDF" href="javascript:;" style="text-decoration: none">
                         <#--<i class="layui-icon layui-icon-download-circle"-->
                         <#--style="font-size: 25px; vertical-align: middle; color: black;">-->
                         <#--</i>-->
-                            <strong>导出PDF</strong>
+                            <strong >导出PDF</strong>
                         </a>
                     </dd>
                     <dd lay-unselect>
-                        <a href="javascript:;" style="text-decoration: none">
+                        <a id="downloadImg" href="javascript:;" download="" style="text-decoration: none">
                         <#--<i class="layui-icon layui-icon-download-circle"-->
                         <#--style="font-size: 25px; vertical-align: middle; color: black;"></i>-->
-                            <strong id="exportHtml">导出HTML</strong>
+                            <strong id="exportImg">导出图片</strong>
                         </a>
                     </dd>
                 </dl>
@@ -80,12 +82,12 @@
 
             <li class="layui-nav-item">
                 <a href="">
-                    <i class="layui-icon layui-icon-set" id="export" style="font-size: 25px; color: black;"></i>
+                    <i class="layui-icon layui-icon-set" id="md-setting" style="font-size: 25px; color: black;"></i>
                 </a>
                 <dl class="layui-nav-child layui-anim layui-anim-upbit" style="left: auto; text-align: center;">
                     <dd lay-unselect>
                         <a href="javascript:;" style="text-decoration: none">
-                            <strong>设置图床</strong>
+                            <strong id="img-store">设置图床</strong>
                         </a>
                     </dd>
                 </dl>
