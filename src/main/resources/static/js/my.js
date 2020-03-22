@@ -135,11 +135,11 @@ $(function () {
 
 layui.use('layer', function () {
 //鼠标悬停提示特效
-    $("#help").hover(function () {
-        openMsg("教程", "#help");
-    }, function () {
-        layui.layer.close(subtips);
-    });
+//     $("#help").hover(function () {
+//         openMsg("教程", "#help");
+//     }, function () {
+//         layui.layer.close(subtips);
+//     });
 //鼠标悬停提示特效
     $("#release").hover(function () {
         openMsg("发布", "#release");
@@ -180,7 +180,7 @@ $("#release").click(function () {
         layer.open({
             type: 1,
             title: "<h3>发布哪里？</h3>",
-            area: ['30%', '40%'],
+            area: ['40%', '50%'],
             btn: ['确定', '取消'],
             content: $("#releaseSelect"),
             yes: function (index, layero) {
@@ -189,6 +189,7 @@ $("#release").click(function () {
                     "id": $('#articleId').val(),
                     "content": vditor.getValue(),
                     "title": $('#article-title').val(),
+                    "tags": tagTake.getAllTags(),
                     "publishType": type
                 }
                 $.ajax({

@@ -34,11 +34,11 @@
             </li>
 
 
-            <li class="layui-nav-item">
-                <a href="/help">
-                    <i class="layui-icon layui-icon-help" id="help" style="font-size: 25px; color: black;"></i>
-                </a>
-            </li>
+<#--            <li class="layui-nav-item">-->
+<#--                <a href="/help">-->
+<#--                    <i class="layui-icon layui-icon-help" id="help" style="font-size: 25px; color: black;"></i>-->
+<#--                </a>-->
+<#--            </li>-->
             <li class="layui-nav-item" id="my-github">
                 <a href="https://github.com/cbamls/Markdown-Web-editor" target="_blank">
                     <img src="${ctx}/images/github.gif" style="height: 40px">

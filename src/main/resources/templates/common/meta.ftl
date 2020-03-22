@@ -12,6 +12,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="${ctx}/images/logo.jpeg">
 <meta name="copyright" content="http://www.6aiq.com"/>
 <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+<link href="${ctx}/css/tag.css" rel="stylesheet">
 <link href="${ctx}/css/index.css" rel="stylesheet">
 <link href="${ctx}/css/title.css" rel="stylesheet">
 <link rel="stylesheet" href="${ctx}/css/search.css"> <!-- Resource style -->
@@ -22,6 +23,7 @@
 
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="${ctx}/js/tag.js"></script>
 <script src="${ctx}/js/title.js"></script>
 <script src="${ctx}/js/indexedDB.js"></script>
 <script src="https://cdn.bootcss.com/canvg/1.0/rgbcolor.js"></script>
