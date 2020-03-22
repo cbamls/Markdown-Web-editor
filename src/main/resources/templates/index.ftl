@@ -7,7 +7,7 @@
 <div class="wrapper">
     <#include "/common/header.ftl">
     <div class="main">
-        <div id="releaseSelect" class="layui-input-block" style="display: none">
+        <div id="releaseSelect" class="layui-input-block" style="display: none; text-align: center; margin-left: 0px;">
             <strong>对外发布：</strong><input type="radio" name="saveType" value="public" title="public" checked>
             &nbsp;&nbsp;
             <strong>私有发布：</strong><input type="radio" name="saveType" value="private" title="private">
@@ -15,6 +15,16 @@
             <div style="color: rgba(0,0,0,.38);font-size: 12px;">
                 对外发布后，其它人即可拜读您的笔墨～
             </div>
+            <br><br>
+            <H3>文章标签</H3>
+            <input type="text" id="Tags" value="输入后回车">
+            <br><br><br>
+            <H3>推荐标签</H3>
+            <#if tags??>
+                <#list tags as tag>
+                    <div id="tag-${tag}" onclick="clickTag('${tag}')" class="tagItem2">${tag}</div>
+                </#list>
+            </#if>
         </div>
         <div id="placeholder" style="display: none">
 
@@ -579,6 +589,11 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
 
 
     $(function save_auto() {
+        //初始化已有标签
+        var tag1 = new Tag("Tags");
+        tag1.tagValue = "";
+        tag1.initView();
+
         var spanObj = document.getElementById('s1');
         var d = new Date();
         var saveTimer = setInterval(function () {

@@ -3,7 +3,6 @@
 <head>
     <#include "/common/meta.ftl">
     <link href="${ctx}/css/shadow.css" rel="stylesheet">
-
 </head>
 <body>
 <div class="wrapper">
@@ -15,6 +14,11 @@
                 <label for="article-title" style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
                 <input type="text" name="name" id="article-title" value="${title}" disabled>
                 <span class="spin" style="width: 0px;"></span>
+                <#if tags??>
+                    <#list tags as tag>
+                        <div id="tag-${tag}" onclick="clickTag('${tag}')" class="tagItem2">${tag}</div>
+                    </#list>
+                </#if>
             </div>
             <div>
                 <div id="preview">
@@ -28,7 +32,7 @@
         </div>
     </div>
     <textarea id="markdownText" class="preview" style="display:none;">
-${article}
+${article.content}
     </textarea>
 
 
@@ -79,7 +83,7 @@ ${article}
     $("#preview").css("font-variant", "normal")
     $("#preview").css("padding-right", "20px")
     $("#preview").css("padding-top", "20px")
-
+    $("#preview").addClass("my-preview")
 </script>
 <#include "/common/footer.ftl"/>
 </body>

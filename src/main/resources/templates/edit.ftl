@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html>
 <head>
     <#include "/common/meta.ftl">
 </head>
@@ -8,7 +8,7 @@
     <#include "/common/header.ftl">
 
     <div class="main">
-        <div id="releaseSelect" class="layui-input-block" style="display: none">
+        <div id="releaseSelect" class="layui-input-block" style="display: none; text-align: center; margin-left: 0px;">
             <strong>对外发布：</strong><input type="radio" name="saveType" value="public" title="public" checked>
             &nbsp;&nbsp;
             <strong>私有发布：</strong><input type="radio" name="saveType" value="private" title="private">
@@ -16,6 +16,16 @@
             <div style="color: rgba(0,0,0,.38);font-size: 12px;">
                 对外发布后，其它人即可拜读您的笔墨～
             </div>
+            <br><br>
+            <H3>文章标签</H3>
+            <input type="text" id="Tags" placeholder="输入后回车">
+            <br><br><br>
+            <H3>使用过的标签</H3>
+            <#if tags??>
+                <#list tags as tag>
+                    <div id="tag-${tag}" onclick="clickTag('${tag}')" class="tagItem2">${tag}</div>
+                </#list>
+            </#if>
         </div>
         <div style="position: fixed;right: -23px;top: 70px;}">
             <input type="checkbox" id="checkbox_d2" class="chk_4" checked /><label for="checkbox_d2"></label>
@@ -24,7 +34,7 @@
             <div class="input">
                 <label for="article-title" style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
                 <input type="text" name="name" id="article-title">
-                <input type="text" name="id" id="articleId" style="display: none">
+                <input type="text" name="id" id="articleId" style="display: none" value="${articleId?c}">
                 <span class="spin" style="width: 0px;"></span>
             </div>
             <div style="text-align: center; margin-top: 2px">
@@ -49,7 +59,7 @@
             </div>
             <div id="your-article" style="display: none">
                 <#if article??>
-${article}
+${article.content}
                 </#if>
             </div>
             <div id="vditor">
@@ -101,6 +111,10 @@ ${article}
             $("#checkbox_d2").prop("checked", 'true')
         }
         vditor.setTheme(theme)
+        //初始化已有标签
+        var tag1 = new Tag("Tags");
+        tag1.tagValue = "${article.tags}";
+        tag1.initView();
     })
     var id = ${articleId?c};
     var dbs;
@@ -127,7 +141,7 @@ ${article}
             }
         ],
         input: (value, preview)  => {
-            console.log("触发输入")
+            console.log("sync..." + vditor.getValue())
             if ($("#article-title").val() !== '' && vditor.getValue() != '') {
                 dbs.delete("articles",${articleId?c},{
                     success:function () {
@@ -174,9 +188,8 @@ ${article}
                     } else {
                         dbs.get("articles",id,{
                             success:function (result) {
-                                console.log(result)
                                 if (result !== undefined) {
-
+                                    //console.log(result.content.trim() + " ++++++++++++ " + document.getElementById('your-article').textContent.trim() + " endddd")
                                     if ( result.content.trim() !== document.getElementById('your-article').textContent.trim()) {
                                         layer.open({
                                             type: 1,
@@ -189,12 +202,22 @@ ${article}
                                                 vditor.setValue(document.getElementById('your-article').textContent)
                                                 $("#loading").css("display", "none");
                                                 layer.close(index);
+                                                dbs.delete("articles",${articleId?c},{
+                                                    success:function () {
+                                                    },
+                                                    complete:function(e){},
+                                                    error:function(e){}
+                                                })
                                             }, btn2: function(index, layero){
                                                 $("#article-title").val(result.title)
                                                 vditor.setValue(result.content)
                                                 $("#loading").css("display", "none");
                                             }
                                         });
+                                    } else {
+                                        $("#article-title").val(`${title}`)
+                                        vditor.setValue(document.getElementById('your-article').textContent)
+                                        $("#loading").css("display", "none");
                                     }
                                 } else {
                                     $("#article-title").val(`${title}`)
@@ -204,7 +227,7 @@ ${article}
                                     dbs.add("articles",{
                                         'id': ${articleId?c},
                                         'title':$("#article-title").val(),
-                                        'content': vditor.getValue()
+                                        'content': document.getElementById('your-article').textContent
                                     },{
                                         success:function () {},
                                         complete:function(e){},
@@ -214,6 +237,7 @@ ${article}
                             },
                             complete:function(e){},
                             error:function(e){
+                                console.log(e)
                                 $("#article-title").val(`${title}`)
                                 vditor.setValue(document.getElementById('your-article').textContent)
                                 $("#loading").css("display", "none");
@@ -222,7 +246,7 @@ ${article}
                     }
                 },
                 connError:function(e){ //如果连接失败
-
+                    console.log(e)
                 }
             })
 
@@ -403,7 +427,7 @@ ${article}
         },
     })
     window.onbeforeunload =function () {
-        alert("关闭")
+        console.log("close db conn")
         dbs.close()
     };
 </script>

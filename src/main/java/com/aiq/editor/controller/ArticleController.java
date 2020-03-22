@@ -6,14 +6,18 @@ import com.aiq.editor.repo.Article;
 import com.aiq.editor.repo.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 public class ArticleController {
@@ -38,23 +42,32 @@ public class ArticleController {
 //            return new MdResponse(405, "您发布过相同标题的文章", null);
 //        }
         if (article.getId() == null) {
+            Long articleId = System.currentTimeMillis() / 1000;
+            article.setId(articleId);
             article.setCreateTime(format.format(new Date()));
             article.setUpdateTime(format.format(new Date()));
         } else {
+            Article dbArticle = articleRepository.getOne(article.getId());
+            article.setCreateTime(dbArticle.getCreateTime());
             article.setUpdateTime(format.format(new Date()));
         }
-        Long articleId = System.currentTimeMillis() / 1000;
-        article.setId(articleId);
         article.setTheme("default");
         if (!(article.getTags() != null && article.getTags().length() > 0)) {
             article.setTags("未分类");
+        } else {
+            List<String> tagList = Arrays.asList(article.getTags().split(",")).stream().map(e -> e.trim()).collect(Collectors.toList());
+            StringBuilder tagStr = new StringBuilder();
+            for (int i = 0; i < tagList.size(); i++) {
+                if (i == 0) {
+                    tagStr.append(tagList.get(i));
+                } else {
+                    tagStr.append(",").append(tagList.get(i));
+                }
+            }
+            article.setTags(tagStr.toString());
         }
         articleRepository.save(article);
-        return new MdResponse(200, "发布成功", articleId);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());
+        return new MdResponse(200, "发布成功", article.getId());
     }
 
     @RequestMapping("/article/{articleId}")
@@ -83,7 +96,8 @@ public class ArticleController {
                 }
                 map.put("articles", articleMap);
             }
-            map.put("article", article.getContent());
+            map.put("article", article);
+            map.put("tags", Arrays.stream(article.getTags().split(",")).collect(Collectors.toList()));
             map.put("title", article.getTitle());
             map.put("id", article.getId());
             map.put("editable", "true");
@@ -106,6 +120,11 @@ public class ArticleController {
             }
             List<Article> articles = articleRepository.findArticlesByUserIdIs(JwtUtil.getUserId(token));
             Map<String, List<Article>> articleMap = new HashMap<>();
+            Set<String> tags = new HashSet<>();
+            if (!CollectionUtils.isEmpty(articles)) {
+                Stream<String> stream = articles.stream().map(Article::getTags).map(e -> e.split(",")).flatMap(x -> new HashSet<String>(Arrays.asList(x)).stream());
+                tags = stream.collect(Collectors.toSet());
+            }
             for (Article item : articles) {
                 for (String tag : item.getTags().split(",")) {
                     if (articleMap.get(tag) != null) {
@@ -117,9 +136,16 @@ public class ArticleController {
                     }
                 }
             }
+            for (String tag : article.getTags().split(",")) {
+                if (tags.contains(tag)) {
+                    tags.remove(tag);
+                }
+            }
+            request.setAttribute("tags", tags);
+
             map.put("articles", articleMap);
 
-            map.put("article", article.getContent());
+            map.put("article", article);
             map.put("title", article.getTitle());
             map.put("articleId", article.getId());
             map.put("edit", "yes");

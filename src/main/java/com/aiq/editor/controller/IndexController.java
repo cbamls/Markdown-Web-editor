@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 public class IndexController {
@@ -45,6 +47,17 @@ public class IndexController {
             LOGGER.info("用户已登陆：{}", JwtUtil.getUsername(token));
             List<Article> articles = articleRepository.findArticlesByUserIdIs(JwtUtil.getUserId(token));
             Map<String, List<Article>> articleMap = new HashMap<>();
+            if (!CollectionUtils.isEmpty(articles)) {
+                Set<String> tagSet = new HashSet<>();
+                List<String> tags = articles.stream().map(Article::getTags).distinct().collect(Collectors.toList());
+                for(String tag : tags) {
+                    for (String i : tag.split(",")) {
+                        tagSet.add(i);
+                    }
+                }
+                LOGGER.info("该用户的文章标签列表： {}", tagSet);
+                request.setAttribute("tags", tagSet);
+            }
             for (Article article : articles) {
                 for (String tag : article.getTags().split(",")) {
                     if (articleMap.get(tag) != null) {
