@@ -82,6 +82,10 @@
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="${ctx}/js/auth.js"></script>
 <script>
+    Auth.init({
+        login_url: '/api/login',
+        forgot_url: '/api/forgot'
+    });
     function checkName(value) {
         if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
             layui.use('layer', function () {
@@ -98,7 +102,10 @@
         return true;
     }
     function checkEmail(value) {
-        if (!new RegExp("/^([a-zA-Z]|[0-9])(\\w|\\-)+@[a-zA-Z0-9]+\\.([a-zA-Z]{2,4})$/").test(value)) {
+        if (!new RegExp("^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$").test(value)) {
+            layui.use('layer', function () {
+                layui.layer.msg('邮箱格式不正确')
+            });
             return false;
         }
         return true;
@@ -106,7 +113,7 @@
     function checkPass(value) {
         if (!/^[A-Za-z0-9]{6,16}$/.test(value)) {
             layui.use('layer', function () {
-                layui.layer.msg('密码必须6到12位，只能为字母数字下划线')
+                layui.layer.msg('密码必须6到16位，只能为字母数字下划线')
             });
             return false;
         }
@@ -224,12 +231,6 @@
         else
             return null;
     }
-
-    Auth.init({
-        login_url: '/api/login',
-        forgot_url: '/api/forgot'
-    });
-
 
 </script>
 </body>

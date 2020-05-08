@@ -15,7 +15,7 @@ function exportPDF() {
             scale: 1,
             useCORS: true,
         },
-       // pagebreak: {avoid: 'p'},
+        // pagebreak: {avoid: 'p'},
         jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
     };
     html2pdf().set(opt).from(element).save();
@@ -228,7 +228,42 @@ $("#release").click(function () {
         });
     }
 )
+function showIframe(content) {
+    $("<div id='showMobilePreview'>" +
+        "<div class='mobile_preview_header'><i class='mobile_preview_header_icon'></i></div>" +
+        "<div class='mobile_preview_frame'><div id='shui-mo' class='vditor-reset vditor-reset--anchor' style='font-variant: normal; padding-right: 20px; padding-top: 20px;'>" + content + "</div></div>" +
+        "<div class='mobile_preview_footer'><i class='mobile_preview_footer_icon'></i></div>" +
+        "</div>").prependTo('body');
+    Vditor.chartRender()
+    Vditor.mathRender(document.getElementById("showMobilePreview"))
+    Vditor.codeRender(document.getElementById("showMobilePreview"), "zh_CN")
+    Vditor.abcRender()
+  //  $("#YuFrameMobilePreview").attr("src", url);
+    //添加背景遮罩
+    $("<div id='YuFrameMobilePreviewBg' style='cursor:pointer;width:100%;height:100%;background-color: Gray;display:block;z-index:9998;position:absolute;left:0px;top:0px;filter:Alpha(Opacity=30);/* IE */-moz-opacity:0.4;/* Moz + FF */opacity: 0.4; '/>").prependTo('body');
 
+    //点击背景遮罩移除iframe和背景
+    $("#YuFrameMobilePreviewBg").click(function () {
+        $("#showMobilePreview").remove();
+        $("#YuFrameMobilePreviewBg").remove();
+    });
+}
+$("#exportWX").click(function (e) {
+    document.addEventListener('copy',myFunction);
+    showIframe(vditor.getHTML())
+    document.execCommand("copy");
+    alert("已复制好，可贴粘。");
+})
+
+function myFunction(e) {
+    e.preventDefault();
+    var div = document.createElement("div");
+    var link = document.createElement("link");
+    link.href="http://localhost:8081/templete/green.css";
+    div.append(link)
+    div.append(document.getElementById("showMobilePreview"))
+    e.clipboardData.setData('text/html', div.innerHTML);
+}
 $("#checkbox_d2").click(function (e) {
     var theme = localStorage.getItem("theme")
     if (theme === undefined || theme === '') {
@@ -244,5 +279,34 @@ $("#checkbox_d2").click(function (e) {
         }
     }
 })
+$(function () {
+    var mdFile = $("#mdFile");
+    mdFile.change(function () {
+        if ($(this).val() != "") {
+            var files = $('#mdFile').prop('files');//获取到文件列表
+            if (files.length == 0) {
+                alert('请选择文件');
+            } else {
+                var reader = new FileReader();//新建一个FileReader
+                reader.readAsText(files[0], "UTF-8");//读取文件
+                reader.onload = function (evt) { //读取完文件之后会回来这里
+                    var fileString = evt.target.result; // 读取文件内容
+                    vditor.setValue(fileString)
+                }
+            }
+        }
+    })
+})
 
+function importMD() {
+    console.log(vditor.getHTML())
+    document.getElementById('mdFile').click();
+}
 
+function downLoadMD(content, fileName) {
+    var aEle = document.createElement("a");
+    blob = new Blob([content]);
+    aEle.download = fileName + "—— 水墨 编辑器.md";
+    aEle.href = URL.createObjectURL(blob);
+    aEle.click();
+}

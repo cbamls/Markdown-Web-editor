@@ -4,7 +4,7 @@
         <a href="/" style="text-decoration: none">
            <h1 style="margin: 0">
                <img src="${ctx}/images/logo.jpeg" alt="在线 Markdown 编辑器" class="my-img-style"/>
-               <strong id="head-text" style="font-size: 20px;padding-left: 20px;"> 墨刀</strong>
+               <strong id="head-text" style="font-size: 20px;padding-left: 20px;"> 水墨 </strong>
                <strong style="font-size: 15px">- 在线 Markdown 编辑器</strong>
            </h1>
         </a>
@@ -63,6 +63,18 @@
                 <dl class="layui-nav-child layui-anim layui-anim-upbit"
                     style="left: auto;right: -22px;text-align: center;">
                     <dd lay-unselect>
+                        <a id="importMD" href="javascript:;" style="text-decoration: none" onclick="importMD()">
+                            <input type="file" name = "file" id = "mdFile" style="display: none"/>
+                            <strong >导入MD</strong>
+                        </a>
+                    </dd>
+                    <dd lay-unselect>
+                        <a id="exportMD" href="javascript:;" style="text-decoration: none" onclick="downLoadMD(vditor.getValue(),
+                        $('#article-title').val().length > 0 ? $('#article-title').val() : getNowTime())">
+                            <strong >导出MD</strong>
+                        </a>
+                    </dd>
+                    <dd lay-unselect>
                         <a id="exportPDF" href="javascript:;" style="text-decoration: none">
                         <#--<i class="layui-icon layui-icon-download-circle"-->
                         <#--style="font-size: 25px; vertical-align: middle; color: black;">-->
@@ -75,6 +87,14 @@
                         <#--<i class="layui-icon layui-icon-download-circle"-->
                         <#--style="font-size: 25px; vertical-align: middle; color: black;"></i>-->
                             <strong id="exportImg">导出图片</strong>
+                        </a>
+                    </dd>
+                    <dd lay-unselect>
+                        <a id="exportWX" href="javascript:;" style="text-decoration: none">
+                            <#--<i class="layui-icon layui-icon-download-circle"-->
+                            <#--style="font-size: 25px; vertical-align: middle; color: black;">-->
+                            <#--</i>-->
+                            <strong >复制到微信</strong>
                         </a>
                     </dd>
                 </dl>

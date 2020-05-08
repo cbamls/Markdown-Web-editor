@@ -2,6 +2,8 @@
 <html lang="zh-cmn-Hans">
 <head>
     <#include "/common/meta.ftl">
+    <@head title="${title} - 水墨在线Markdown编辑器">
+    </@head>
     <link href="${ctx}/css/shadow.css" rel="stylesheet">
 </head>
 <body>
@@ -78,7 +80,22 @@ ${article.content}
             speech: {
                 enable: true,
             },
-            anchor: true
+            anchor: true,
+            after () {
+                Vditor.outlineRender(document.getElementById('preview'), document.getElementById('outline'))
+            },
+            lazyLoadImage: 'https://cdn.jsdelivr.net/npm/vditor/dist/images/img-loading.svg',
+            renderers: {
+                renderHeading: (node, entering) => {
+                    if (entering) {
+                        return [
+                            `<h${node.__internal_object__.HeadingLevel} class="vditor__heading"><span class="prefix"></span><span>`,
+                            Lute.WalkContinue]
+                    } else {
+                        return [`</span></h${node.__internal_object__.HeadingLevel}>`, Lute.WalkContinue]
+                    }
+                },
+            }
         })
     $("#preview").css("font-variant", "normal")
     $("#preview").css("padding-right", "20px")
