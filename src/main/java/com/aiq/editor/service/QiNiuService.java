@@ -59,9 +59,10 @@ public class QiNiuService {
 
             String fileName = "image-" + UUID.randomUUID().toString().replaceAll("-", "") + "." + fileExt;
             boolean admin = JwtUtil.checkLogin(token) && JwtUtil.getUsername(token).equals("cbam");
+            boolean admin2 = JwtUtil.checkLogin(token) && JwtUtil.getUsername(token).equals("ki");
 
             Response res;
-            if (admin) {
+            if (admin || admin2) {
                 res = uploadManager.put(file.getBytes(), fileName, auth.uploadToken("aiqimg"));
             } else {
                 res = uploadManager.put(file.getBytes(), fileName, getUpToken());
@@ -70,7 +71,7 @@ public class QiNiuService {
             if (res.isOK() && res.isJson()) {
 
                 String realPath;
-                if (admin) {
+                if (admin || admin2) {
                     realPath = "http://img.6aiq.com/" + JSONObject.parseObject(res.bodyString()).get("key");
                 } else {
                     realPath = QINIU_IMAGE_DOMAIN + JSONObject.parseObject(res.bodyString()).get("key");

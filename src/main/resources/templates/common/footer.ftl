@@ -12,7 +12,7 @@
                 class="pipe">|</span><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1278648988&web_id=1278648988"></script>
         </nav>
         <p>Copyright &copy;2020 www.6aiq.com All Rights Reserved. &nbsp;
-            <a href="http://www.6aiq.com/" target="_blank" rel="nofollow"> 鲁ICP备18016225号</a><br>
+            <a href="https://www.6aiq.com/" target="_blank" rel="nofollow"> 鲁ICP备18016225号</a><br>
         </p>
     </div>
 </footer>

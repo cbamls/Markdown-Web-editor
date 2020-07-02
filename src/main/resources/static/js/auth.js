@@ -98,7 +98,6 @@ var Auth = {
 		}, 1000);
 	},
 	init(option) {
-		alert("init")
 		Auth.setHeight(Auth.vars.box[0].offsetHeight + Auth.vars.lowin_footer.offsetHeight);
 
 		Auth.vars.password_group.style.height = Auth.vars.password_group.offsetHeight + 'px';
@@ -121,7 +120,6 @@ var Auth = {
 		});
 
 		Auth.vars.register_link.addEventListener("click", (e) => {
-			alert("click")
 			Auth.brand();
 			Auth.register(e);
 		});

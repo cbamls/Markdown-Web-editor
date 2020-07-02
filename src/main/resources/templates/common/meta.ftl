@@ -19,8 +19,8 @@
 <link rel="stylesheet" href="${ctx}/css/search.css"> <!-- Resource style -->
 <link rel="stylesheet" href="${ctx}/css/select-theme.css"> <!-- Resource style -->
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.css"/>
-<script src="https://cdn.jsdelivr.net/npm/vditor@latest/dist/index.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@3.2.12/dist/index.css"/>
+<script src="https://cdn.jsdelivr.net/npm/vditor@3.2.12/dist/index.min.js"></script>
 
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>

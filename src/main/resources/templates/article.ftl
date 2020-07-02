@@ -2,9 +2,23 @@
 <html lang="zh-cmn-Hans">
 <head>
     <#include "/common/meta.ftl">
-    <@head title="${title} - 水墨在线Markdown编辑器">
-    </@head>
+
+    <title>${title} - 水墨在线Markdown编辑器</title>
     <link href="${ctx}/css/shadow.css" rel="stylesheet">
+    <style>
+        #outline {
+            position: fixed;
+            width: 290px;
+            top: 20px;
+            right: 20px;
+            bottom: 20px;
+            overflow: auto;
+            font-size: 13px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            background-color: var(--textarea-background-color);
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -13,7 +27,8 @@
     <div id="main-article">
         <div id="export-pdf">
             <div class="input">
-                <label for="article-title" style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
+                <label for="article-title"
+                       style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
                 <input type="text" name="name" id="article-title" value="${title}" disabled>
                 <span class="spin" style="width: 0px;"></span>
                 <#if tags??>
@@ -24,11 +39,11 @@
             </div>
             <div>
                 <div id="preview">
-                    <div style="margin-top: 15px">
-                        <div id="loading" style="margin: 0 auto; text-align: center; height: 600px;"><img
-                                    src="${ctx}/images/loading.gif">
-                        </div>
-                    </div>
+<#--                    <div style="margin-top: 15px">-->
+<#--                        <div id="loading" style="margin: 0 auto; text-align: center; height: 600px;"><img-->
+<#--                                    src="${ctx}/images/loading.gif">-->
+<#--                        </div>-->
+<#--                    </div>-->
                 </div>
             </div>
         </div>
@@ -60,42 +75,29 @@ ${article.content}
             layer.msg(elem.text());
         });
     });
-    $('#exportImg').click(function(event){
+    $('#exportImg').click(function (event) {
         event.stopPropagation();    //  阻止事件冒泡
         exportImg();
     });
-    $('#exportPDF').click(function(event){
+    $('#exportPDF').click(function (event) {
         event.stopPropagation();    //  阻止事件冒泡
         exportPDF();
     });
     Vditor.preview(document.getElementById('preview'),
         document.getElementById('markdownText').textContent, {
             markdown: {
-                toc: true,
-            },
-            customEmoji: {
-                'sd': '💔',
-                'j': 'https://unpkg.com/vditor@1.3.1/dist/images/emoji/j.png',
+                toc: true
             },
             speech: {
                 enable: true,
             },
-            anchor: true,
+            anchor: 1,
             after () {
-                Vditor.outlineRender(document.getElementById('preview'), document.getElementById('outline'))
+                if (window.innerWidth <= 768) {
+                    return;
+                }
             },
             lazyLoadImage: 'https://cdn.jsdelivr.net/npm/vditor/dist/images/img-loading.svg',
-            renderers: {
-                renderHeading: (node, entering) => {
-                    if (entering) {
-                        return [
-                            `<h${node.__internal_object__.HeadingLevel} class="vditor__heading"><span class="prefix"></span><span>`,
-                            Lute.WalkContinue]
-                    } else {
-                        return [`</span></h${node.__internal_object__.HeadingLevel}>`, Lute.WalkContinue]
-                    }
-                },
-            }
         })
     $("#preview").css("font-variant", "normal")
     $("#preview").css("padding-right", "20px")

@@ -27,8 +27,7 @@
             </#if>
         </div>
         <div id="placeholder" style="display: none">
-
-## Guide
+## 教程
 
 这是一篇讲解如何正确使用 **Markdown** 的排版示例，学会这个很有必要，能让你的文章有更佳清晰的排版。
 
@@ -40,12 +39,12 @@
 
 这段内容展示了在内容里面一些排版格式，比如：
 
-- **加粗** - `**加粗**`
-- *倾斜* - `*倾斜*`
-- ~~删除线~~ - `~~删除线~~`
-- `Code 标记` - `` `Code 标记` ``
-- [超级链接](https://hacpai.com) - `[超级链接](https://hacpai.com)`
-- [username@gmail.com](mailto:username@gmail.com) - `[username@gmail.com](mailto:username@gmail.com)`
+- **加粗** -`**加粗**`
+- *倾斜* -`*倾斜*`
+- ~~删除线~~ -`~~删除线~~`
+- `Code 标记` -``Code 标记``
+- [超级链接](https://hacpai.com) -`[超级链接](https://hacpai.com)`
+- [username@gmail.com](mailto:username@gmail.com) -`[username@gmail.com](mailto:username@gmail.com)`
 
 ### 提及用户
 
@@ -62,8 +61,8 @@
 
 #### 一些表情例子
 
-:smile: :laughing: :dizzy_face: :sob: :cold_sweat: :sweat_smile:  :cry: :triumph: :heart_eyes: :relieved:
-:+1: :-1: :100: :clap: :bell: :gift: :question: :bomb: :heart: :coffee: :cyclone: :bow: :kiss: :pray: :anger:
+😄 😆 😵 😭 😰 😅  😢 😤 😍 😌
+👍 👎 💯 👏 🔔 🎁 ❓ 💣 ❤️ ☕️ 🌀 🙇 💋 🙏 💢
 
 ### 大标题 - Heading 3
 
@@ -108,7 +107,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, 世界")
+fmt.Println("Hello, 世界")
 }
 ```
 
@@ -117,9 +116,9 @@ func main() {
 ```java
 public class HelloWorld {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+public static void main(String[] args) {
+System.out.println("Hello World!");
+}
 
 }
 ```
@@ -131,32 +130,32 @@ public class HelloWorld {
 #### 无序列表
 
 - Java
-  - Spring
-    - IoC
-    - AOP
+- Spring
+- IoC
+- AOP
 - Go
-  - gofmt
-  - Wide
+- gofmt
+- Wide
 - Node.js
-  - Koa
-  - Express
+- Koa
+- Express
 
 #### 有序列表
 
 1. Node.js
-   1.1. Express
-   1.2. Koa
-   1.3. Sails
+1. Express
+2. Koa
+3. Sails
 2. Go
-   2.1. gofmt
-   2.2. Wide
+1. gofmt
+2. Wide
 3. Java
-   3.1. Latke
-   3.2. IDEA
+1. Latke
+2. IDEA
 
 #### 任务列表
 
-- [x] 发布 Sym
+- [X] 发布 Sym
 - [X] 发布 Solo
 - [ ] 预约牙医
 
@@ -164,17 +163,17 @@ public class HelloWorld {
 
 如果需要展示数据什么的，可以选择使用表格。
 
-| header 1 | header 3 |
-| -------- | -------- |
-| cell 1   | cell 2   |
-| cell 3   | cell 4   |
-| cell 5   | cell 6   |
+| header 1 | header 2 |
+| - | - |
+| cell 1 | cell 2 |
+| cell 3 | cell 4 |
+| cell 5 | cell 6 |
 
 ### 隐藏细节
 
 <details>
-<summary>这里是摘要部分。</summary>
-这里是细节部分。
+    <summary>这里是摘要部分。</summary>
+    这里是细节部分。
 </details>
 
 ### 段落
@@ -183,17 +182,27 @@ public class HelloWorld {
 
 使用空行在 Markdown 排版中相当重要。（这是第二段）
 
+### 链接引用
+
+[链接文本][链接标识]
+
+```
+[链接文本][链接标识]
+
+[链接标识]: https://b3log.org
+```
+
 ### 数学公式
 
 多行公式块：
 
 $$
 \frac{1}{
-  \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
-  \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
-    1+\frac{e^{-6\pi}}
-    {1+\frac{e^{-8\pi}}{1+\cdots}}
-  }
+\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+1+\frac{e^{-6\pi}}
+{1+\frac{e^{-8\pi}}{1+\cdots}}
+}
 }
 $$
 
@@ -201,75 +210,115 @@ $$
 
 公式 $a^2 + b^2 = \color{red}c^2$ 是行内。
 
+### 脑图
+
+```mindmap
+- 教程
+- 语法指导
+- 普通内容
+- 提及用户
+- 表情符号 Emoji
+- 一些表情例子
+- 大标题 - Heading 3
+- Heading 4
+- Heading 5
+- Heading 6
+- 图片
+- 代码块
+- 普通
+- 语法高亮支持
+- 演示 Go 代码高亮
+- 演示 Java 高亮
+- 有序、无序、任务列表
+- 无序列表
+- 有序列表
+- 任务列表
+- 表格
+- 隐藏细节
+- 段落
+- 链接引用
+- 数学公式
+- 脑图
+- 流程图
+- 时序图
+- 甘特图
+- 图表
+- 五线谱
+- Graphviz
+- 多媒体
+- 脚注
+- 快捷键
+```
+
 ### 流程图
 
 ```mermaid
 graph TB
-    c1-->a2
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
+c1-->a2
+subgraph one
+a1-->a2
+end
+subgraph two
+b1-->b2
+end
+subgraph three
+c1-->c2
+end
 ```
 
 ### 时序图
 
 ```mermaid
 sequenceDiagram
-    Alice->>John: Hello John, how are you?
-    loop Every minute
-        John-->>Alice: Great!
-    end
+Alice->>John: Hello John, how are you?
+loop Every minute
+John-->>Alice: Great!
+end
 ```
 
 ### 甘特图
 
 ```mermaid
 gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2019-01-01, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2019-01-12  , 12d
-    another task      : 24d
+title A Gantt Diagram
+dateFormat  YYYY-MM-DD
+section Section
+A task           :a1, 2019-01-01, 30d
+Another task     :after a1  , 20d
+section Another
+Task in sec      :2019-01-12  , 12d
+another task      : 24d
 ```
 
 ### 图表
 
 ```echarts
 {
-  "title": { "text": "最近 30 天" },
-  "tooltip": { "trigger": "axis", "axisPointer": { "lineStyle": { "width": 0 } } },
-  "legend": { "data": ["帖子", "用户", "回帖"] },
-  "xAxis": [{
-      "type": "category",
-      "boundaryGap": false,
-      "data": ["2019-05-08","2019-05-09","2019-05-10","2019-05-11","2019-05-12","2019-05-13","2019-05-14","2019-05-15","2019-05-16","2019-05-17","2019-05-18","2019-05-19","2019-05-20","2019-05-21","2019-05-22","2019-05-23","2019-05-24","2019-05-25","2019-05-26","2019-05-27","2019-05-28","2019-05-29","2019-05-30","2019-05-31","2019-06-01","2019-06-02","2019-06-03","2019-06-04","2019-06-05","2019-06-06","2019-06-07"],
-      "axisTick": { "show": false },
-      "axisLine": { "show": false }
-  }],
-  "yAxis": [{ "type": "value", "axisTick": { "show": false }, "axisLine": { "show": false }, "splitLine": { "lineStyle": { "color": "rgba(0, 0, 0, .38)", "type": "dashed" } } }],
-  "series": [
-    {
-      "name": "帖子", "type": "line", "smooth": true, "itemStyle": { "color": "#d23f31" }, "areaStyle": { "normal": {} }, "z": 3,
-      "data": ["18","14","22","9","7","18","10","12","13","16","6","9","15","15","12","15","8","14","9","10","29","22","14","22","9","10","15","9","9","15","0"]
-    },
-    {
-      "name": "用户", "type": "line", "smooth": true, "itemStyle": { "color": "#f1e05a" }, "areaStyle": { "normal": {} }, "z": 2,
-      "data": ["31","33","30","23","16","29","23","37","41","29","16","13","39","23","38","136","89","35","22","50","57","47","36","59","14","23","46","44","51","43","0"]
-    },
-    {
-      "name": "回帖", "type": "line", "smooth": true, "itemStyle": { "color": "#4285f4" }, "areaStyle": { "normal": {} }, "z": 1,
-      "data": ["35","42","73","15","43","58","55","35","46","87","36","15","44","76","130","73","50","20","21","54","48","73","60","89","26","27","70","63","55","37","0"]
-    }
-  ]
+"title": { "text": "最近 30 天" },
+"tooltip": { "trigger": "axis", "axisPointer": { "lineStyle": { "width": 0 } } },
+"legend": { "data": ["帖子", "用户", "回帖"] },
+"xAxis": [{
+"type": "category",
+"boundaryGap": false,
+"data": ["2019-05-08","2019-05-09","2019-05-10","2019-05-11","2019-05-12","2019-05-13","2019-05-14","2019-05-15","2019-05-16","2019-05-17","2019-05-18","2019-05-19","2019-05-20","2019-05-21","2019-05-22","2019-05-23","2019-05-24","2019-05-25","2019-05-26","2019-05-27","2019-05-28","2019-05-29","2019-05-30","2019-05-31","2019-06-01","2019-06-02","2019-06-03","2019-06-04","2019-06-05","2019-06-06","2019-06-07"],
+"axisTick": { "show": false },
+"axisLine": { "show": false }
+}],
+"yAxis": [{ "type": "value", "axisTick": { "show": false }, "axisLine": { "show": false }, "splitLine": { "lineStyle": { "color": "rgba(0, 0, 0, .38)", "type": "dashed" } } }],
+"series": [
+{
+"name": "帖子", "type": "line", "smooth": true, "itemStyle": { "color": "#d23f31" }, "areaStyle": { "normal": {} }, "z": 3,
+"data": ["18","14","22","9","7","18","10","12","13","16","6","9","15","15","12","15","8","14","9","10","29","22","14","22","9","10","15","9","9","15","0"]
+},
+{
+"name": "用户", "type": "line", "smooth": true, "itemStyle": { "color": "#f1e05a" }, "areaStyle": { "normal": {} }, "z": 2,
+"data": ["31","33","30","23","16","29","23","37","41","29","16","13","39","23","38","136","89","35","22","50","57","47","36","59","14","23","46","44","51","43","0"]
+},
+{
+"name": "回帖", "type": "line", "smooth": true, "itemStyle": { "color": "#4285f4" }, "areaStyle": { "normal": {} }, "z": 1,
+"data": ["35","42","73","15","43","58","55","35","46","87","36","15","44","76","130","73","50","20","21","54","48","73","60","89","26","27","70","63","55","37","0"]
+}
+]
 }
 ```
 
@@ -293,22 +342,76 @@ K: Em
 "G"g2ab3|"Em"gfe"D"f2d|"Em"e3-e3:|
 ```
 
+### Graphviz
+
+```graphviz
+digraph finite_state_machine {
+rankdir=LR;
+size="8,5"
+node [shape = doublecircle]; S;
+node [shape = point ]; qi
+
+node [shape = circle];
+qi -> S;
+S  -> q1 [ label = "a" ];
+S  -> S  [ label = "a" ];
+q1 -> S  [ label = "a" ];
+q1 -> q2 [ label = "ddb" ];
+q2 -> q1 [ label = "b" ];
+q2 -> q2 [ label = "b" ];
+}
+```
+
 ### 多媒体
 
 支持 v.qq.com，youtube.com，youku.com，coub.com，facebook.com/video，dailymotion.com，.mp4，.m4v，.ogg，.ogv，.webm，.mp3，.wav 链接解析
 
 https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
 
+### 脚注
+
+这里是一个脚注引用[^1]，这里是另一个脚注引用[^bignote]。
+
+```
+这里是一个脚注引用[^1]，这里是另一个脚注引用[^bignote]。
+[^1]: 第一个脚注定义。
+[^bignote]: 脚注定义可使用多段内容。
+
+缩进对齐的段落包含在这个脚注定义内。
+
+```
+可以使用代码块。
+```
+
+还有其他行级排版语法，比如**加粗**和[链接](https://b3log.org)。
+```
+
 ## 快捷键
 
-我们的编辑器支持很多快捷键，具体请参考 [键盘快捷键](https://hacpai.com/article/1474030007391)（或者按 "`?` ":smirk_cat:）
+我们的编辑器支持很多快捷键，具体请参考 [键盘快捷键](https://hacpai.com/article/1474030007391)（或者按 "`?` "😼）
+
+[链接标识]: https://b3log.org
+[^1]: 第一个脚注定义。
+
+[^bignote]: 脚注定义可使用多段内容。
+
+缩进对齐的段落包含在这个脚注定义内。
+
+
+```
+可以使用代码块。
+```
+
+
+还有其他行级排版语法，比如**加粗**和[链接](https://b3log.org)。
         </div>
         <div style="position: fixed;right: -23px;top: 70px;}">
-            <input type="checkbox" id="checkbox_d2" class="chk_4" checked /><label for="checkbox_d2"></label>
+            <input type="checkbox" id="checkbox_d2" class="chk_4" checked/><label for="checkbox_d2"></label>
         </div>
         <div id="main-article">
             <div class="input">
-                <label for="article-title" style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
+                <label for="article-title"
+                       style="line-height: 60px; font-size: 24px; font-weight: 300; top: 10px;">标题:</label>
                 <input type="text" name="name" id="article-title">
                 <input type="text" name="id" id="articleId" style="display: none">
                 <span class="spin" style="width: 0px;"></span>
@@ -339,7 +442,7 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
 
                 </#if>
             </div>
-<#--            <button type="button" onclick="ex()"> 下载</button>-->
+            <#--            <button type="button" onclick="ex()"> 下载</button>-->
             <div id="vditor">
 
             </div>
@@ -363,13 +466,13 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
             layer.msg(elem.text());
         });
     });
-    $('#exportImg').click(function(event){
+    $('#exportImg').click(function (event) {
         layui.use('layer', function () {
                 layer.msg("请 发布 后再导出");
             }
         )
     });
-    $('#exportPDF').click(function(event){
+    $('#exportPDF').click(function (event) {
         layui.use('layer', function () {
                 layer.msg("请 发布 后再导出");
             }
@@ -387,7 +490,6 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
     let headers = {Authorization: 'token'};
     const vditor = new Vditor('vditor', {
         typewriterMode: true,
-        counter: 100,
         preview: {
             markdown: {
                 toc: true,
@@ -532,6 +634,9 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
             name: "edit-mode",
             tipPosition: "nw",
         }, {
+            name: "code-theme",
+            tipPosition: "nw",
+        }, {
             hotkey: "⌘-P",
             name: "both",
             tipPosition: "nw",
@@ -559,6 +664,12 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
             }, {
                 name: "code-theme",
                 tipPosition: "nw",
+            }, {
+                name: "outline",
+                tipPosition: "nw",
+            }, {
+                name: "export",
+                tipPosition: "nw",
             }
             , {
                 name: "toHelp",
@@ -573,7 +684,7 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
                 name: "br",
             }],
         upload: {
-            accept: 'image/*,.wav,.jpg,.png,.gif,.jpeg',
+            accept: 'image/*,.wav,.jpg,.png,.gif,.jpeg,.svg',
             max: 10 * 1024 * 1024,
             token: 'test',
             cache: true,
