@@ -31,7 +31,11 @@ public class AppInterceptor implements HandlerInterceptor {
         try {
             String scheme = httpServletRequest.getScheme();
             String serverName = httpServletRequest.getServerName();
-            String basePath = scheme + "://" + serverName;
+            String basePath = "https://" + serverName;
+
+            if (serverName.contains("localhost")) {
+                basePath = "http://" + serverName + ":8081";
+            }
             LOGGER.info("请求路径:{}", basePath);
             httpServletRequest.setAttribute("ctx", basePath);
             if (httpServletRequest.getCookies() != null) {

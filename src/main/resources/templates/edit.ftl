@@ -127,6 +127,8 @@ ${article.content}
             markdown: {
                 toc: true,
             },
+            paragraphBeginningSpace: true,
+            inlineDigit: true
         },
         toolbar:[
             {
@@ -375,6 +377,9 @@ ${article.content}
             name: "edit-mode",
             tipPosition: "nw",
         }, {
+            name: "code-theme",
+            tipPosition: "nw",
+        }, {
             hotkey: "⌘-P",
             name: "both",
             tipPosition: "nw",
@@ -396,10 +401,19 @@ ${article.content}
             name: "devtools",
             tipPosition: "nw",
         }
-            // , {
-            //     name: "info",
-            //     tipPosition: "nw",
-            // }
+            , {
+                name: "content-theme",
+                tipPosition: "nw",
+            }, {
+                name: "code-theme",
+                tipPosition: "nw",
+            }, {
+                name: "outline",
+                tipPosition: "nw",
+            }, {
+                name: "export",
+                tipPosition: "nw",
+            }
             , {
                 name: "toHelp",
                 tipPosition: "nw",
@@ -413,7 +427,7 @@ ${article.content}
                 name: "br",
             }],
         upload: {
-            accept: 'image/*,.wav,.jpg,.png,.gif,.jpeg',
+            accept: 'image/*,.wav,.jpg,.png,.gif,.jpeg,.svg',
             max: 10 * 1024 * 1024,
             token: 'test',
             cache: true,

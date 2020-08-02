@@ -11,8 +11,8 @@
                                                                                  target="_blank">联系我们</a> <span
                 class="pipe">|</span><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1278648988&web_id=1278648988"></script>
         </nav>
-        <p>Copyright &copy;2020 www.6aiq.com All Rights Reserved. &nbsp;
-            <a href="https://www.6aiq.com/" target="_blank" rel="nofollow"> 鲁ICP备18016225号</a><br>
+        <p>Copyright &copy;2020 www.md6s.com All Rights Reserved. &nbsp;
+            <a href="https://www.md6s.com/" target="_blank" rel="nofollow"> 鲁ICP备18016225号-2 </a><br>
         </p>
     </div>
 </footer>

@@ -494,7 +494,9 @@ https://v.qq.com/x/cover/zf2z0xpqcculhcz/y0016tj0qvh.html
             markdown: {
                 toc: true,
             },
-            engine: "MathJax"
+            paragraphBeginningSpace: true,
+            engine: "MathJax",
+            inlineDigit: true
         },
         toolbarConfig: {
             pin: true,

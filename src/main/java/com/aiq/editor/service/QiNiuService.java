@@ -72,7 +72,7 @@ public class QiNiuService {
 
                 String realPath;
                 if (admin || admin2) {
-                    realPath = "http://img.6aiq.com/" + JSONObject.parseObject(res.bodyString()).get("key");
+                    realPath = "https://img.6aiq.com/" + JSONObject.parseObject(res.bodyString()).get("key");
                 } else {
                     realPath = QINIU_IMAGE_DOMAIN + JSONObject.parseObject(res.bodyString()).get("key");
                 }

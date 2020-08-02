@@ -37,6 +37,10 @@ body {
     margin-left: 19%;
     margin-right: 19%;
     background-color: white;
+    padding-top: 60px;
+    width:100%;
+    position: fixed;
+
 }
 .my-preview {
     margin-top: 2%;
