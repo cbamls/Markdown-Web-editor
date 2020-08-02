@@ -1,6 +1,6 @@
 # 水墨-在线 Markdown 编辑器
 
-基于 Spring-boot、FreeMarker、layui、Vditor 构建的一款在线 **所见即所得**的 Markdown 编辑器。[水墨-在线Markdown编辑器](https://www.6aiq.com)。
+基于 Spring-boot、FreeMarker、layui、Vditor 构建的一款在线 **所见即所得**的 Markdown 编辑器。[水墨-在线Markdown编辑器](https://www.md6s.com)。
 
 # ChangeLogs
 * [ ]    后台代码重构
