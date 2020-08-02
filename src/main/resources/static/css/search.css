@@ -90,8 +90,9 @@ Header
 
 -------------------------------- */
 .cd-main-header {
-    position: relative;
+    position: fixed;
     z-index: 4;
+    width: 100%;
     background-color: rgba(51, 53, 69, 0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
